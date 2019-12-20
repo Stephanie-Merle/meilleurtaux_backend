@@ -5,10 +5,8 @@ const Application = mongoose.model("Application", {
     propertyState: { type: String, required: true },
     propertyUsage: { type: String, required: true },
     currentSituation: { type: String, required: true },
-    propertyLocation: {
     country: { type: String},
     zip: { type: String},
-    },
     landCost: { type: String, required: true },
     estimatedPrice: { type: String, required: true },
     renovationCost: String ,

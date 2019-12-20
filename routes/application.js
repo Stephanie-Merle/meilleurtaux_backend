@@ -31,7 +31,8 @@ router.post("/application/create", async (req, res) => {
         propertyState: req.body.propertyState,
         propertyUsage: req.body.propertyUsage,
         currentSituation: req.body.currentSituation,
-        propertyLocation: req.body.propertyLocation,
+        zip: req.body.zip,
+        country: req.body.country,
         landCost: req.body.landCost,
         estimatedPrice: req.body.estimatedPrice,
         renovationCost: req.body.renovationCost,
@@ -53,7 +54,7 @@ router.post("/application/create", async (req, res) => {
         Etat de bien: ${req.body.propertyState} \n 
         Usage de bien: ${req.body.propertyUsage} \n 
         Votre situation actuelle: ${req.body.currentSituation} \n 
-        Votre adresse: ${req.body.propertyLocation.country} ${req.body.propertyLocation.zip} \n 
+        Votre adresse: ${req.body.country} ${req.body.zip} \n 
         Prix du terrain: ${req.body.landCost} \n 
         Coût construction: ${req.body.estimatedPrice} \n 
         Montant des travaux: ${req.body.renovationCost} \n
