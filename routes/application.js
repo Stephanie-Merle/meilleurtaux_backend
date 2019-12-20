@@ -75,7 +75,7 @@ router.post("/application/create", async (req, res) => {
   
   router.post("/application/", async (req, res) => {
     try {
-      const password = SHA256(req.body.password).toString(encBase64);
+      const password = req.body.password;
       const checkPassword = process.env.HASH;
 if(password === checkPassword){
   const applications = await Application.find();
