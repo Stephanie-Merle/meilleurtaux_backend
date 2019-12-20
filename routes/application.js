@@ -14,7 +14,7 @@ const mg = mailgun({apiKey: API_KEY, domain: DOMAIN});
 
 const generateNumber = ()=> {
   let val = "";
-  for(let i= 0; i<8 ; i++){
+  for(let i= 0; i<9 ; i++){
     val += Math.floor(Math.random()*9);
   }
   return val;
@@ -87,5 +87,19 @@ if(password === checkPassword){
       res.status(400).json({ error: "Bad request" });
     }
   });
+
+  // REMOVE *************
+  
+  router.post("/application/:id/remove", async (req, res) => {
+    try {
+      let applicationId = req.params.id;
+      const filtered = await Application.findOne({_id: applicationId});
+      await filtered.remove()
+      res.json({ message: "Application removed" });
+    } catch (e) {
+      res.status(400).json({ error: "Bad request" });
+    }
+  });
+
 
   module.exports = router;
